@@ -10,12 +10,12 @@ def handle_contact():
         data = request.get_json()
         name = data['name']
         email = data['email']
-        text = data['text']
+        message = data['message']
         company = data.get('company', None)  # Optional field
         
         # Validate required fields
-        if not name or not email or not text:
-            raise ValueError('Name, email, and text fields are required')
+        if not name or not email or not message:
+            raise ValueError('Name, email, and message fields are required')
 
         # Validate email format
         if not validate_email(email):
