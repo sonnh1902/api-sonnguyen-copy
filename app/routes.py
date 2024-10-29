@@ -23,7 +23,7 @@ def handle_contact():
             raise ValueError('Invalid email format')
 
         # External API URL for sending email
-        send_email_url = 'https://custom-portfolio-website-pi.vercel.app/'
+        send_email_url = 'https://custom-portfolio-website-pi.vercel.app/api/send-email'
 
         # Payload to send to the external /api/send-email endpoint
         email_payload = {
