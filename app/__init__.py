@@ -6,7 +6,8 @@ def create_app():
     CORS(app)
 
     # Import and register routes
-    from .routes import contact_blueprint
+    from .routes import contact_blueprint, health_blueprint
     app.register_blueprint(contact_blueprint, url_prefix='/api')
+    app.register_blueprint(health_blueprint, url_prefix='/api')
 
     return app
