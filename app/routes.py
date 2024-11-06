@@ -8,20 +8,8 @@ health_blueprint = Blueprint('health', __name__)
 
 @health_blueprint.route('/health', methods=['GET', 'HEAD'])
 def health_check():
-    """Simple health check endpoint that handles both GET and HEAD requests."""
-    try:
-        # Get the Healthchecks.io URL from environment variable
-        healthchecks_url = os.getenv('HEALTHCHECKS_URL')
-        
-        # If Healthchecks.io URL is configured, ping it
-        if healthchecks_url:
-            requests.get(healthchecks_url, timeout=10)
-            
-        return jsonify({'status': 'alive'}), 200
-    except Exception as e:
-        # Even if the Healthchecks.io ping fails, we still return success
-        # as long as our service is running
-        return jsonify({'status': 'alive', 'ping_error': str(e)}), 200
+    """Simple health check endpoint that handles both GET and HEAD requests for UptimeRobot."""
+    return jsonify({'status': 'alive'}), 200
 
 @contact_blueprint.route('/contact', methods=['POST'])
 def handle_contact():
