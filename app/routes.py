@@ -6,9 +6,9 @@ from .utils import validate_email
 contact_blueprint = Blueprint('contact', __name__)
 health_blueprint = Blueprint('health', __name__)
 
-@health_blueprint.route('/health', methods=['GET'])
+@health_blueprint.route('/health', methods=['GET', 'HEAD'])
 def health_check():
-    """Simple health check endpoint that also pings Healthchecks.io."""
+    """Simple health check endpoint that handles both GET and HEAD requests."""
     try:
         # Get the Healthchecks.io URL from environment variable
         healthchecks_url = os.getenv('HEALTHCHECKS_URL')
